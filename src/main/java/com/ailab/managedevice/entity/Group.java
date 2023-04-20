@@ -5,15 +5,23 @@ import lombok.Data;
 
 import java.util.Set;
 
-@Data
+
 @Entity
-@Table(name="group")
+@Table(name="group_device")
 public class Group {
     @Id
     private int id;
-    private String name_group;
-    @OneToMany
-    @JoinColumn(name="group_id")
-    private Set<Device> device;
+    @Column(name="name_group")
+    private String nameGroup;
+
+    public Group(){}
+    public Group(int id, String nameGroup){
+        this.id=id;
+        this.nameGroup=nameGroup;
+    }
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="group_id",referencedColumnName = "id")
+    private Set<Device> device;*/
 
 }

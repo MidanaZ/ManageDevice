@@ -12,6 +12,7 @@ public class Condition_device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "status")
     private String status;
     @OneToMany
     @JoinColumn(name = "condition_device_id")

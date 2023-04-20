@@ -4,32 +4,40 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Date;
-
 @Data
 @Entity
 @Table(name="device")
 public class Device {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String id_device;
-    private String name_device;
-    private Date date_buy;
-    private Date expire_date_warranty;
+    @Column(name = "id_device")
+    private String idDevice;
+    @Column(name = "name_device")
+    private String nameDevice;
+    @Column(name = "date_buy")
+    private Date dateBuy;
+    @Column(name = "expire_date_warranty")
+    private Date expireDateWarranty;
+    @Column(name = "image")
     private String image;
-    private Boolean is_delete;
+    @Column(name ="is_delete")
+    private Boolean isDelete;
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    public Group group;
 
     public Device(){}
 
-    public Device(int id, String id_device, String name_device, Date date_buy, Date expire_date_warranty, String image){
+    public Device(int id, String idDevice, String nameDevice, Date dateBuy, Date expireDateWarranty, String image){
         this.id = id;
-        this.id_device = id_device;
-        this.name_device = name_device;
-        this.date_buy = date_buy;
-        this.expire_date_warranty = expire_date_warranty;
+        this.idDevice = idDevice;
+        this.nameDevice = nameDevice;
+        this.dateBuy = dateBuy;
+        this.expireDateWarranty = expireDateWarranty;
         this.image = image;
         //this.is_delete = is_delete;
     }
+
 
 
     public int getId() {
@@ -38,42 +46,47 @@ public class Device {
     public void setId(int id) {
         this.id = id;
     }
-    public String getId_device(){
-        return id_device;
+
+    public String getIdDevice(){
+        return idDevice;
     }
-    public void setId_device(String id_device){
-        this.id_device = id_device;
+    public void setIdDevice(String idDevice){
+        this.idDevice = idDevice;
     }
-    public String getName_device (){
-        return name_device;
+
+    public String getNameDevice (){
+        return nameDevice;
     }
-    public void setName_device(String name_device){
-        this.name_device = name_device;
+    public void setNameDevice(String nameDevice){
+        this.nameDevice = nameDevice;
     }
-    public Date getDate_buy (){
-        return date_buy;
+
+    public Date getDateBuy (){
+        return dateBuy;
     }
-    public void setDate_buy (Date date_buy){
-        this.date_buy = date_buy;
+    public void setDateBuy (Date dateBuy){
+        this.dateBuy = dateBuy;
     }
-    public Date getExpire_date_warranty (){
-        return expire_date_warranty;
+
+    public Date getExpireDateWarranty (){
+        return expireDateWarranty;
     }
-    public void setExpire_date_warranty(Date expire_date_warranty){
-        this.expire_date_warranty = expire_date_warranty;
+    public void setExpireDateWarranty(Date expireDateWarranty){
+        this.expireDateWarranty = expireDateWarranty;
     }
+
     public String getImage (){
         return image;
     }
     public void setImage (String image){
         this.image = image;
     }
-    /*public Boolean getIs_delete (){
-        return is_delete;
+    public Boolean getIsDelete (){
+        return isDelete;
     }
-    public void setIs_delete (Boolean is_delete){
-        this.is_delete =is_delete;
-    }*/
+    public void setIsDelete (Boolean isDelete){
+        this.isDelete =isDelete;
+    }
 
 
 }

@@ -13,9 +13,13 @@ public class Repair_bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String id_device;
-    private Date date_repair;
-    private String name_device;
+    @Column(name = "id_device")
+    private String idDevice;
+    @Column(name = "date_repair")
+    private Date dateRepair;
+    @Column(name = "name_device")
+    private String nameDevice;
+    @Column(name = "description")
     private String description;
     @ManyToMany
     @JoinTable(name="device_has_repair_bill",
