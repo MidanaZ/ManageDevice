@@ -6,22 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/devicemanage")
 public class DeviceController {
     @Autowired
     DeviceService service;
     @PostMapping("/addDevice")
-    public Device addDevice(@RequestBody Device device){
+    public Device add(@RequestBody Device device){
         return service.addDevice(device);
     }
     @DeleteMapping("/deleteDevice/{id}")
-    public String deleteDevice(@PathVariable int id){
+    public String delete(@PathVariable int id){
         return service.deleteDevice(id);
     }
     @PutMapping("/updateDevice")
-    public Device updateDevice(@RequestBody Device device){
+    public Device update(@RequestBody Device device){
         return service.updateDevice(device);
     }
-    @GetMapping("/Device/{nameDevice}")
+    @GetMapping("/findDevice/{nameDevice}")
     public Device findByNameDevice(@PathVariable String nameDevice){
         return service.getDeviceByName(nameDevice);
     }

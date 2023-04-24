@@ -12,8 +12,8 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="name_location")
-    private String nameLocation;
+    @Column(name="location_name")
+    private String locationName;
     @OneToMany
     @JoinColumn(name="location_id")
     private Set<Device> device;

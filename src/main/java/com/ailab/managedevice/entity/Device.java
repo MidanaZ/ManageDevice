@@ -10,83 +10,73 @@ import java.sql.Date;
 public class Device {
     @Id
     private int id;
-    @Column(name = "id_device")
-    private String idDevice;
-    @Column(name = "name_device")
-    private String nameDevice;
-    @Column(name = "date_buy")
-    private Date dateBuy;
-    @Column(name = "expire_date_warranty")
-    private Date expireDateWarranty;
+    @Column(name = "device_id")
+    private String deviceId;
+    @Column(name = "device_name")
+    private String deviceName;
+    @Column(name = "date_purchase")
+    private Date datePurchase;
+    @Column(name = "date_expiry")
+    private Date dateExpiry;
     @Column(name = "image")
     private String image;
     @Column(name ="is_delete")
     private Boolean isDelete;
     @ManyToOne
     @JoinColumn(name = "group_id")
-    public Group group;
+    public DeviceGroup deviceGroup;
 
     public Device(){}
 
-    public Device(int id, String idDevice, String nameDevice, Date dateBuy, Date expireDateWarranty, String image){
+    public Device(int id, String deviceId, String deviceName, Date datePurchase, Date dateExpiry, String image, Boolean isDelete){
         this.id = id;
-        this.idDevice = idDevice;
-        this.nameDevice = nameDevice;
-        this.dateBuy = dateBuy;
-        this.expireDateWarranty = expireDateWarranty;
+        this.deviceId = deviceId;
+        this.deviceName = deviceName;
+        this.datePurchase = datePurchase;
+        this.dateExpiry = dateExpiry;
         this.image = image;
-        //this.is_delete = is_delete;
+        this.isDelete = isDelete;
     }
-
-
-
-    public int getId() {
+    public int getId(){
         return id;
     }
-    public void setId(int id) {
+    public void setId(int id){
         this.id = id;
     }
-
-    public String getIdDevice(){
-        return idDevice;
+    public String getDeviceId(){
+        return deviceId;
     }
-    public void setIdDevice(String idDevice){
-        this.idDevice = idDevice;
+    public void setDeviceId(String deviceId){
+        this.deviceId = deviceId;
     }
-
-    public String getNameDevice (){
-        return nameDevice;
+    public String getDeviceName(){
+        return deviceName;
     }
-    public void setNameDevice(String nameDevice){
-        this.nameDevice = nameDevice;
+    public void setDeviceName(String deviceName){
+        this.deviceName = deviceName;
     }
-
-    public Date getDateBuy (){
-        return dateBuy;
+    public Date getDatePurchase(){
+        return datePurchase;
     }
-    public void setDateBuy (Date dateBuy){
-        this.dateBuy = dateBuy;
+    public void setDatePurchase(Date datePurchase){
+        this.datePurchase = datePurchase;
     }
-
-    public Date getExpireDateWarranty (){
-        return expireDateWarranty;
+    public Date getDateExpiry(){
+        return dateExpiry;
     }
-    public void setExpireDateWarranty(Date expireDateWarranty){
-        this.expireDateWarranty = expireDateWarranty;
+    public void setDateExpiry(Date dateExpiry){
+        this.dateExpiry = dateExpiry;
     }
-
-    public String getImage (){
+    public String getImage() {
         return image;
     }
-    public void setImage (String image){
+    public void setImage(String Image){
         this.image = image;
     }
-    public Boolean getIsDelete (){
+    public Boolean getIsDelete(){
         return isDelete;
     }
-    public void setIsDelete (Boolean isDelete){
-        this.isDelete =isDelete;
+    public void setIsDelete(Boolean isDelete){
+        this.isDelete = isDelete;
     }
-
-
 }

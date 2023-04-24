@@ -1,23 +1,19 @@
 package com.ailab.managedevice.entity;
-
 import jakarta.persistence.*;
-import lombok.Data;
-
-import java.util.Set;
 
 
 @Entity
-@Table(name="group_device")
-public class Group {
+@Table(name="device_group")
+public class DeviceGroup {
     @Id
     private int id;
-    @Column(name="name_group")
-    private String nameGroup;
+    @Column(name="group_name")
+    private String groupName;
 
-    public Group(){}
-    public Group(int id, String nameGroup){
+    public DeviceGroup(){}
+    public DeviceGroup(int id, String groupName){
         this.id=id;
-        this.nameGroup=nameGroup;
+        this.groupName = groupName;
     }
 
     /*@OneToMany(cascade = CascadeType.ALL)

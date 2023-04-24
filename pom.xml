@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ailab</groupId>
-    <artifactId>ManageDevice</artifactId>
+    <artifactId>DeviceManageWebsite</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ManageDevice</name>
     <description>ManageDevice</description>
